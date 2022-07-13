@@ -1,0 +1,58 @@
+<div class="cart-container">
+    <ng-container *ngIf="products.length != 0">
+        <div class="main-wrapper">
+            <header class="page-header">
+                <div class="wrapper">
+                    <h1>Your Cart</h1>  
+                </div>
+            </header>
+        
+            <table class="content-table">
+                <thead>
+                    <tr>
+                        <th colspan="2"></th>
+                        <th>PRICE</th>
+                        <th>QTY</th>
+                        <th>DELETE</th>
+                        <th>TOTAL</th>  
+                    </tr>    
+                </thead>
+        
+                <tbody>
+                    <tr *ngFor="let item of products; let i = index">
+                        <td ><img src="{{ item.image }}" style="width: 50px" /></td>
+                        <td class="td">{{ item.title }}</td>
+                        <td>{{ item.price | currency: "INR" }}</td>
+                        <td><input type="number" [value]="item.quantity" (blur)="validateQty($event, i)" min="1"></td>
+                        <td><button (click)=" removeProduct(item)"><i class="fa fa-remove" style="font-size:20px;color:#ee5b28"></i></button></td>
+                        <td class="td">{{ item.total * item.quantity | currency: "INR" }}</td>
+                    </tr>
+                    </tbody>
+            </table>
+        
+            <div class="bottom-content">
+            <div class="payment-content">
+                <h5>Subtotal  {{ total | currency: "INR" }}</h5>
+                <button class="btn btn-success" routerLink="/cart/payment">Checkout</button>
+                <button class="btn btn-warning" routerLink="/products">Update Cart</button>
+
+            </div>
+        </div>
+        </div>
+    </ng-container>
+
+    
+    <ng-container *ngIf="products.length == 0">
+        <div class="container">
+            <div class="center">
+                <img alt="" />
+                <h2>Your Cart is empty!</h2>
+                <h6>Add item to it now</h6>
+                <button class="btn btn-primary" routerLink="/products">Shop Now</button>
+            </div>
+        </div>
+    </ng-container>
+
+</div>
+
+

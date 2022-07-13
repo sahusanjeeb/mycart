@@ -1,0 +1,21 @@
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import {  RouterModule, Routes } from '@angular/router';
+import { ProductsComponent } from './products/products.component';
+
+const proRoutes: Routes =[
+  {path:'', children:[
+    {path:'',component:ProductsComponent}
+  ]}
+]
+
+@NgModule({
+  declarations: [
+    ProductsComponent
+  ],
+  imports: [
+    CommonModule,
+    RouterModule.forChild(proRoutes),
+  ]
+})
+export class ProductModule { constructor(){ console.log("product module");}}

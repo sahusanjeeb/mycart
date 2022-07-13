@@ -1,0 +1,114 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    height: 100vh;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    padding: 0 20%;
+}
+.payment-container{
+    display: flex;
+    justify-content: center;
+}
+.form-container{
+    width: 67%;
+    padding: 4rem 7rem;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    background-color: #fafafa;
+}
+.form-container h4{
+    margin-top: 2rem;
+}
+.side-pay{
+    width: 33%;
+    padding: 4rem 6rem;
+    display: flex;
+    justify-content: flex-start;
+    background-color: #EEEEEE;
+}
+.form-title{
+    font-size: 18px;
+    margin-bottom: 2.5rem;
+    font-weight: 500;
+    opacity: 0.8;
+}
+.input-line{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    margin-bottom:1rem;
+    width: 100%;
+}
+label{
+    font-size: 16px;
+    color: #545454;
+    margin-bottom: 0.5rem;
+}
+input[type='text']{
+    width: 100%;
+    height: 35px;
+    padding: 0 10PX;
+    /* border: none; */
+    font-size: 14px;
+    
+}
+input[type='text']::placeholder{
+    font-size: 14px;
+    color: #545454;
+}
+.input-container, .input-containerr{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+.input-container .input-line{
+    width: 45%;
+}
+.input-containerr .input-line{
+    width: 30%;
+}
+.sidePay-line h4{
+    margin-bottom: 1.2rem;
+}
+.sidePay-line dl{
+    display: flex;
+    width: 100%;
+    justify-content: flex-start;
+}
+.btn-primary{
+    margin-top: 1rem;
+    display: inline-block;
+    color: #fafafa;
+    background-color:#ee5b28;
+    padding: 8px 10px;
+    border: 1px solid transparent;
+    border-radius: 6px;
+    width: 240px;
+}
+/* .btn-primary:hover{
+    background-color: #ee5b28;
+} */
+dl{
+    display: flex;
+}
+dt{
+    width:57%;
+    margin-bottom: 5px;
+    color:#545454;
+    font-weight: 500;
+}
+dd{
+    font-weight: 400;
+    color: #545454;
+}
+

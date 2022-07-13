@@ -1,0 +1,146 @@
+<div class="payment-container">
+<div class="form-container">
+  <h4 class="form-tittle">Billing Address</h4>
+  <form [formGroup]="billingForm" >
+    <div class="input-line">
+      <label for="fname">Full name:</label>
+      <input type="text" id="fname" formControlName="fname" placeholder="Full name">     
+    </div>
+    <div *ngIf="f['fname'].touched && f['fname'].invalid" class="text-danger">  
+      <div *ngIf="f['fname'].errors?.required">Full name is required.</div>   
+  </div> 
+
+    <div class="input-container">
+      <div class="input-line">
+        <label for="phone">Phone:</label>
+        <input type="text" id="phone" formControlName="phone" placeholder="Phone" class="form-control">
+      </div>
+      <div class="input-line">
+        <label for="email">Email:</label>
+        <input type="text" id="email" formControlName="email" placeholder="Email">
+      </div>
+    </div>
+    <div *ngIf="f['phone'].touched && f['phone'].invalid" class="text-danger">  
+      <div *ngIf="f['phone'].errors?.required">Mobile Number is required.</div>  
+      <div *ngIf="f['phone'].errors?.pattern">Enter 10 digit Mobile Number.</div>  
+  </div> 
+  <div *ngIf="f['email'].touched && f['email'].invalid" class="text-danger">  
+    <div *ngIf="f['email'].errors?.required">Email id is required.</div>  
+    <div *ngIf="f['email'].errors?.email">Enter valid Email ID.</div>  
+</div> 
+    
+  
+
+
+    <div class="input-container">
+      <div class="input-line">
+        <label for="area">Area,Street,Village:</label>
+        <input type="text" id="area" formControlName="area" placeholder="Address">
+      </div>
+      <div class="input-line">
+        <label for="landmark">Landmark:</label>
+        <input type="text" id="landmark" formControlName="landmark" placeholder="Landmark">
+      </div>
+    </div>
+    <div *ngIf="f['area'].touched && f['area'].invalid" class="text-danger">  
+      <div *ngIf="f['area'].errors?.required"> Area,Street,Village is required.</div>   
+  </div>  
+   <div *ngIf="f['landmark'].touched && f['landmark'].invalid" class="text-danger">  
+    <div *ngIf="f['landmark'].errors?.required">Landmark is required.</div>   
+</div> 
+
+
+    <div class="input-containerr">
+      <div class="input-line">
+        <label for="pin">Pin:</label>
+        <input type="text" id="pin" formControlName="pin" placeholder="PIN code">
+      </div>
+      <div class="input-line">
+        <label for="city">City:</label>
+        <input type="text" id="city" formControlName="city" placeholder="City">
+      </div>
+      <div class="input-line">
+        <label for="state">State:</label>
+        <input type="text" id="state" formControlName="state" placeholder="State">
+      </div>
+    </div>
+    <div *ngIf="f['pin'].touched && f['pin'].invalid" class="text-danger">  
+      <div *ngIf="f['phone'].errors?.pattern">Please, Enter valid pin.</div>  
+      <div *ngIf="f['pin'].errors?.required">PIN is required.</div>   
+  </div> 
+  <div *ngIf="f['city'].touched && f['city'].invalid" class="text-danger">  
+    <div *ngIf="f['city'].errors?.required">City is required.</div>   
+</div> 
+<div *ngIf="f['state'].touched && f['state'].invalid" class="text-danger">  
+  <div *ngIf="f['state'].errors?.required">State is required.</div>   
+</div> 
+    
+  </form>
+
+  
+<!-- second form -->
+ <h4 class="form-tittle">Payment Details</h4>
+  <form [formGroup]="paymentForm">
+    <div class="input-line">
+      <label for="name">Name on Card</label>
+      <input type="text" id="name" placeholder="your name" formControlName="name">
+    </div>
+    <div *ngIf="p['name'].touched && p['name'].invalid" class="text-danger">  
+      <div *ngIf="p['name'].errors?.required">Full name is required.</div>   
+    </div> 
+    <div class="input-line">
+      <label for="card">Card Number</label>
+      <input type="text" id="card" placeholder="1111-2222-3333-4444" formControlName="cardNumber">
+    </div>
+    <div *ngIf="p['cardNumber'].touched && p['cardNumber'].invalid" class="text-danger">  
+      <div *ngIf="p['cardNumber'].errors?.required">Card number is required.</div>   
+    </div>   
+    
+    <div class="input-container">
+      <div class="input-line">
+        <label for="date">Expiry Date</label>
+        <input type="text" id="date" placeholder="07-22" formControlName="cardExpiry">
+      </div>
+      <div class="input-line">
+        <label for="cvc">CVC</label>
+        <input type="text" id="cvc" placeholder="***" formControlName="cvc">
+      </div>
+    </div>
+    <div *ngIf="p['cardExpiry'].touched && p['cardExpiry'].invalid" class="text-danger">  
+      <div *ngIf="p['cardExpiry'].errors?.required">This field is required.</div>   
+    </div>   
+    <div *ngIf="p['cvc'].touched && p['cvc'].invalid" class="text-danger">  
+      <div *ngIf="p['cvc'].errors?.required">This field is required.</div>   
+    </div>   
+    
+  </form>
+</div> 
+
+<!-- Right side confirmation and payment -->
+
+<div class="side-pay">
+  <div class="sidePay-line">
+    <h4 class="form-tittle">Overview</h4>
+    <dl>
+      <dt>Delivery:</dt>
+      <dd>Pick-up</dd>
+    </dl>
+    <dl>
+      <dt>Delivery type:</dt>
+      <dd>Standard</dd>
+    </dl>
+    <dl>
+      <dt>Payment method:</dt>
+      <dd>Card</dd>
+    </dl>
+    <hr>
+    <dl>
+      <dt>Total:</dt>
+      <dd>{{totalPrice | currency:"INR"}}</dd>
+    </dl>
+    <hr>
+    <button class="btn-primary" (click)="billingUser()" [disabled]="billingForm.invalid || paymentForm.invalid">pay {{totalPrice | currency:"INR"}}</button>
+  </div>
+</div>
+
+</div>
